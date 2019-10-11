@@ -32,7 +32,7 @@ function fixedpointmap(f, x_0; tolerance=1E-12, maxiter=1000)
     if nothing == fixedpointmap(f, f_prime, x_0)
         return
     end
-    x_0, normdiff, iter = fixedpointmap(f, f_prime, x_0, tolerance=tolerance, maxiter=maxiter)
+    x_0, normdiff, iter = fixedpointmap(f, f_prime, x_0, tolerance, maxiter)
     return (value = x_0, normdiff=normdiff, iter=iter)
 end
 
