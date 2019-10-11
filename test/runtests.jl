@@ -56,8 +56,8 @@ using Polynomials
         f_prime(x) = 3*(x-1)^2
         root = 1
         #if with maxiter = 2, we doesn't get the root, then the test will be passed: it means maxiter is working.
-        @test false == (root ≈ fixedpointmap(f, f_prime, 2, maxiter = 2).value) #test with first method (f, f', x_0)
-        @test false ==(root ≈ fixedpointmap(f, 2, maxiter = 2).value) #test with second method (f, x_0)
+        @test_broken root ≈ fixedpointmap(f, f_prime, 2, maxiter = 2).value #test with first method (f, f', x_0)
+        @test_broken root ≈ fixedpointmap(f, 2, maxiter = 2).value #test with second method (f, x_0)
     end
     @testset "tolerance is working" begin
         #check the one of the roots of 2 - 5*x + 2*x^2 and comparing it with roots()
@@ -65,8 +65,8 @@ using Polynomials
         f_prime(x) = 3*(x-1)^2
         root = 1
         #if with tolerance = 1E-3, we doesn't get the root, then the test will be passed: it means maxiter is working.
-        @test false == (root ≈ fixedpointmap(f, f_prime, 2, tolerance = 1E-3).value) #test with first method (f, f', x_0)
-        @test false ==(root ≈ fixedpointmap(f, 2, tolerance = 1E-3).value) #test with second method (f, x_0)
+        @test_broken root ≈ fixedpointmap(f, f_prime, 2, tolerance = 1E-3).value #test with first method (f, f', x_0)
+        @test_broken root ≈ fixedpointmap(f, 2, tolerance = 1E-3).value #test with second method (f, x_0)
     end
 
 end
